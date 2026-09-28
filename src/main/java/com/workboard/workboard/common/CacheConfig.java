@@ -21,7 +21,7 @@ import java.time.Duration;
 @Configuration
 public class CacheConfig {
 
-    @Value("${board.cache.ttl-seconds}")
+    @Value("${workboard.cache.ttl-seconds}")
     private long ttlSeconds;
 
     @Bean
