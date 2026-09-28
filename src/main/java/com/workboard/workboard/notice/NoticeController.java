@@ -31,8 +31,8 @@ public class NoticeController {
         return ResponseEntity.ok(notices);
     }
 
-    @GetMapping("/notices")
-    public String checkApi() {
-        return "공지사항 API 요청 준비 완료 (GET)";
-    }
+    @GetMapping("/{id}")
+    public ResponseEntity<NoticeDetailResponse> getNotice(@PathVariable Long id) {
+        return ResponseEntity.ok(noticeService.findById(id));
+    } //상세보기
 }
