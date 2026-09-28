@@ -1,0 +1,162 @@
+###################
+# 빌드 산출물
+###################
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+out/
+bin/
+target/
+*.class
+*.jar
+*.war
+*.ear
+!gradle-wrapper.jar
+
+###################
+# Gradle
+###################
+.gradle/
+gradle-app.setting
+.gradletasknamecache
+**/build/
+
+###################
+# IntelliJ IDEA
+###################
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# 실행 구성은 공유 대상이므로 제외하지 않음
+!.run/
+!.run/*.xml
+
+###################
+# Eclipse · VS Code
+###################
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+.sts4-cache
+.vscode/
+!.vscode/settings.json
+
+###################
+# 운영체제
+###################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+###################
+# 자격 증명과 개인 설정
+###################
+
+# 개인 전용 설정
+# 교재의 application-local.yml 은 공유 대상이므로 제외하지 않음.
+# 개인 값을 담을 때는 application-personal.yml 을 사용.
+application-personal.yml
+application-personal.yaml
+application-personal.properties
+application-secret.yml
+application-secret.yaml
+application-secret.properties
+*-secret.yml
+*-secret.yaml
+*-secret.properties
+
+# 환경 변수 파일
+.env
+.env.*
+!.env.example
+*.env
+
+# 서버 기동용 환경 변수 파일
+env.sh
+
+# 인증서와 키
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.crt
+*.cer
+*.der
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.ppk
+
+# 자격 증명 파일
+credentials
+credentials.json
+secrets.yml
+secrets.yaml
+secrets.json
+*-credentials.json
+serviceAccountKey.json
+.netrc
+
+# 클라우드 자격 증명
+.aws/
+.gcloud/
+.azure/
+
+###################
+# 로그와 임시 파일
+###################
+*.log
+logs/
+log/
+*.log.*
+hs_err_pid*
+replay_pid*
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+.cache/
+
+###################
+# 데이터베이스 파일
+###################
+*.db
+*.sqlite
+*.sqlite3
+*.mv.db
+*.trace.db
+data/
+
+###################
+# 의존성 캐시
+###################
+node_modules/
+.pnp
+.pnp.js
