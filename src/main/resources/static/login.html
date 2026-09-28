@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!--
+    로그인 화면
+
+    대응 주제
+      토큰 발급
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/api.js" defer></script>
+    <script src="/js/layout.js" defer></script>
+    <script src="/js/login.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="/index.html">
+            <svg viewBox="0 0 28 28" width="34" height="34" aria-hidden="true">
+                <rect x="2" y="4" width="24" height="20" rx="4" fill="none"
+                      stroke="currentColor" stroke-width="2"/>
+                <line x1="7" y1="11" x2="21" y2="11"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="7" y1="16" x2="16" y2="16"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>게시판</span>
+        </a>
+        <div class="header-user" id="header-user"></div>
+    </div>
+</header>
+
+<main class="site-main">
+    <div class="auth-area">
+
+        <h1 class="form-title">로그인</h1>
+
+        <div id="message" class="message"></div>
+
+        <div class="field">
+            <label for="email">이메일</label>
+            <input type="email" id="email" autocomplete="username">
+        </div>
+
+        <div class="field">
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" autocomplete="current-password">
+        </div>
+
+        <div class="auth-actions">
+            <button class="btn-primary" onclick="handleLogin()">로그인</button>
+        </div>
+
+        <p class="auth-link">계정이 없으면 <a href="/signup.html">회원 가입</a></p>
+
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">&copy; 2026 SUPERB DEVOPS. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
