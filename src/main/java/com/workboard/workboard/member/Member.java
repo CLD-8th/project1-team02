@@ -7,12 +7,17 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+<<<<<<< HEAD
 /**
  * 회원 엔티티.
  *
  * 이메일은 중복될 수 없으므로 제약을 지정.
  */
 @Entity
+=======
+@Entity
+@Table(name = "members")
+>>>>>>> f3ed3c58b04ecf7306624dc96ba2c51ec4c3b369
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
@@ -21,6 +26,7 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
@@ -57,3 +63,28 @@ public class Member {
         this.nickname = nickname;
     }
 }
+=======
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String nickname;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private String role; // USER 또는 ADMIN
+
+    public Member(String email, String password, String nickname, String role) {
+        this.email = email;
+        this.password = password;
+        this.nickname = nickname;
+        this.role = role != null ? role : "USER";
+        this.createdAt = LocalDateTime.now();
+    }
+}
+>>>>>>> f3ed3c58b04ecf7306624dc96ba2c51ec4c3b369
