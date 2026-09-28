@@ -1,6 +1,5 @@
 package com.workboard.workboard.member;
 
-<<<<<<< HEAD
 /**
  * 회원 역할.
  *
@@ -10,8 +9,4 @@ public enum Role {
 
     USER,
     ADMIN
-=======
-public enum Role {
-    USER, ADMIN
->>>>>>> f3ed3c58b04ecf7306624dc96ba2c51ec4c3b369
 }
