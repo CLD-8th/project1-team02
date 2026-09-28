@@ -65,4 +65,10 @@ public class MemberService {
     public Optional<MemberResponse> findById(Long id) {
         return memberRepository.findById(id).map(MemberResponse::from);
     }
+
+    // NoticeService 등에서 Entity 객체를 직접 조회할 때 사용
+    public Member getMember(Long id) {
+        return memberRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다. id=" + id));
+    }
 }
