@@ -52,6 +52,7 @@ function render(posts) {
                 ${commentMark(post)}
             </td>
             <td class="col-writer">${escapeHtml(writerOf(post))}</td>
+            <td class="col-department">${escapeHtml(post.department)}</td>
             <td class="col-date">${formatDate(post.createdAt)}</td>
         </tr>`).join('');
 }
