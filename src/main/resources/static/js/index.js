@@ -28,10 +28,10 @@ async function load() {
     params.size = PAGE_SIZE;
 
     try {
-        const posts = await getPosts(Object.keys(params).length ? params : null);
+        const posts = await getNotices(Object.keys(params).length ? params : null);
         render(posts);
     } catch (e) {
-        handleError(e, '목록을 불러오지 못함');
+        handleError(e, '공지 목록을 불러오지 못함');
     }
 }
 
@@ -44,7 +44,7 @@ function render(posts) {
     document.getElementById('count').textContent = posts.totalElements;
 
     if (items.length === 0) {
-        list.innerHTML = '<tr><td colspan="4" class="empty">등록된 글이 없음</td></tr>';
+        list.innerHTML = '<tr><td colspan="4" class="empty">등록된 공지가 없음</td></tr>';
         return;
     }
 

@@ -5,7 +5,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+src/main/java/com/workboard/workboard/common/SecurityConfig.java
 out/
 bin/
 target/
@@ -153,6 +153,11 @@ replay_pid*
 *.mv.db
 *.trace.db
 data/
+
+###################
+# 업로드 파일
+###################
+uploads/
 
 ###################
 # 의존성 캐시

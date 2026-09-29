@@ -38,10 +38,10 @@ public class SecurityConfig {
                         // 화면 파일은 인증 없이 제공.
                         .requestMatchers("/", "/*.html", "/css/**", "/js/**", "/img/**").permitAll()
                         // 가입과 로그인은 공개.
-                        .requestMatchers(HttpMethod.POST, "/api/members").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/members").permitAll()
                         // 로그아웃은 누구인지 알아야 하므로 인증 대상.
-                        .requestMatchers(HttpMethod.POST, "/api/auth/logout").authenticated()
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/auth/logout").authenticated()
+                        .requestMatchers("/auth/**").permitAll()
                         // 문서 경로는 공개. 화면 담당이 토큰 없이 열어 볼 수 있어야 함.
                         .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         // 생존 확인은 공개. 배포 도구가 토큰 없이 호출함.
@@ -49,11 +49,10 @@ public class SecurityConfig {
                         // 나머지 운영 경로는 관리자만. 열어 두면 설정과 환경 값이 드러남.
                         .requestMatchers("/actuator/**").hasRole("ADMIN")
                         // 경로만으로 판단 가능한 경우는 설정에서 처리.
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         // 조회는 공개.
-                        .requestMatchers(HttpMethod.GET, "/api/posts", "/api/posts/*").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/posts/*/comments").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/members/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/notices", "/notices/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/members/*").permitAll()
                         // 나머지는 인증 필요.
                         .anyRequest().authenticated())
                 // 걸러내는 층의 실패도 같은 형태로 응답.

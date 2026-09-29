@@ -7,12 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-/**
- * 회원 엔티티.
- *
- * 이메일은 중복될 수 없으므로 제약을 지정.
- */
 @Entity
+@Table(name = "members")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
