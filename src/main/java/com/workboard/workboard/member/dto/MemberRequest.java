@@ -16,7 +16,6 @@ public record MemberRequest(
 
         @NotBlank(message = "별명은 필수")
         @Size(max = 20, message = "별명은 20자 이하")
-        String nickname,
-
-        String role) {
+        String nickname
+) {
 }

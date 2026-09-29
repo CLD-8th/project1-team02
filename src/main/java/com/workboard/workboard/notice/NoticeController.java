@@ -32,4 +32,9 @@ public class NoticeController {
         List<NoticeDetailResponse> notices = noticeService.findAll(department);
         return ResponseEntity.ok(notices);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<NoticeDetailResponse> getNotice(@PathVariable Long id) {
+        return ResponseEntity.ok(noticeService.findById(id));
+    } //상세보기
 }

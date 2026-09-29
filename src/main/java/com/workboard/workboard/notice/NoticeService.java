@@ -1,5 +1,6 @@
 package com.workboard.workboard.notice;
 
+import com.workboard.workboard.common.NotFoundException; //상세보기
 import com.workboard.workboard.member.Member;
 import com.workboard.workboard.member.MemberService;
 import com.workboard.workboard.notice.dto.NoticeDetailRequest;
@@ -7,6 +8,7 @@ import com.workboard.workboard.notice.dto.NoticeDetailResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
@@ -46,4 +48,14 @@ public class NoticeService {
                 .map(NoticeDetailResponse::of)
                 .toList(); // Java 16 이상 (.collect(Collectors.toList()) 로 작성하셔도 됩니다)
     }
+
+    public NoticeDetailResponse findById(Long id) {
+        Notice notice = getWithWriter(id);
+        return NoticeDetailResponse.of(notice);
+    } //상세보기
+
+    public Notice getWithWriter(Long id) {
+        return noticeRepository.findWithWriterById(id)
+                .orElseThrow(() -> new NotFoundException("공지 부재"));
+    } //상세보기
 }

@@ -17,26 +17,39 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String nickname;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    // 역할.
+    //
+    // 순서가 아니라 이름으로 저장하므로 값을 추가해도 기존 자료가 안전.
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private Role role;
+
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
-    private String role; // USER 또는 ADMIN
-
-    public Member(String email, String password, String nickname, String role) {
+    public Member(String email, String password, String nickname) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
-        this.role = role != null ? role : "USER";
+        this.role = Role.USER;
         this.createdAt = LocalDateTime.now();
+    }
+
+    /**
+     * 별명 변경.
+     *
+     * 설정자를 두지 않고 이 메서드로만 바꾸므로 변경 지점을 추적 가능.
+     */
+    public void changeNickname(String nickname) {
+        this.nickname = nickname;
     }
 }
