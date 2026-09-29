@@ -20,7 +20,7 @@ import java.net.URI;
  */
 @Tag(name = "회원", description = "가입 · 조회 · 수정 · 탈퇴")
 @RestController
-@RequestMapping("/api/members")
+@RequestMapping("/members")
 @RequiredArgsConstructor
 public class MemberController {
 
@@ -30,7 +30,7 @@ public class MemberController {
     public ResponseEntity<MemberResponse> join(@Valid @RequestBody MemberRequest request) {
         MemberResponse created = memberService.join(
                 request.email(), request.password(), request.nickname());
-        URI location = URI.create("/api/members/" + created.id());
+        URI location = URI.create("/members/" + created.id());
         return ResponseEntity.created(location).body(created);
     }
 
