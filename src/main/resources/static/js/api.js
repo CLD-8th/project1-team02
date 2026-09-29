@@ -54,56 +54,17 @@ async function request(path, options = {}) {
 //
 // [페이징과 정렬] 주제 이전에는 params 에 keyword 만 전달.
 // 해당 주제에서 page · size · sort 를 함께 전달.
-function getPosts(params) {
+function getNotices(params) {
     const query = params ? '?' + new URLSearchParams(params).toString() : '';
-    return request('/api/posts' + query);
+    return request('/notices' + query);
 }
 
 function getPost(id) {
-    return request('/api/posts/' + id);
+    return request('/notices' + id);
 }
 
 function createPost(body) {
-    return request('/api/posts', { method: 'POST', body });
-}
-
-// 수정과 삭제.
-//
-// [인가와 권한 확인] 주제에서 서버에 해당 주소가 추가됨.
-// 그 이전에는 호출해도 404 로 응답.
-function updatePost(id, body) {
-    return request('/api/posts/' + id, { method: 'PUT', body });
-}
-
-function deletePost(id) {
-    return request('/api/posts/' + id, { method: 'DELETE' });
-}
-
-// 요약 생성.
-//
-// [요약 기능] 주제에서 서버에 해당 주소가 추가됨.
-// 외부 모델을 호출하므로 응답까지 수 초가 소요.
-function summarizePost(id) {
-    return request('/api/posts/' + id + '/summary', { method: 'POST' });
-}
-
-// =============================================================
-// 댓글
-//
-// [연관관계 매핑] 주제에서 서버에 해당 주소가 추가됨.
-// 그 이전에는 호출해도 404 로 응답.
-// =============================================================
-
-function getComments(postId) {
-    return request('/api/posts/' + postId + '/comments');
-}
-
-function createComment(postId, body) {
-    return request('/api/posts/' + postId + '/comments', { method: 'POST', body });
-}
-
-function deleteComment(commentId) {
-    return request('/api/comments/' + commentId, { method: 'DELETE' });
+    return request('/notices', { method: 'POST', body });
 }
 
 // =============================================================
@@ -113,13 +74,13 @@ function deleteComment(commentId) {
 // 가입.
 // [화면 연동] 주제에서 서버에 해당 주소가 추가됨.
 function signup(body) {
-    return request('/api/members', { method: 'POST', body });
+    return request('/members', { method: 'POST', body });
 }
 
 // 회원 조회.
 // [화면 연동] 주제에서 서버에 해당 주소가 추가됨.
 function getMember(id) {
-    return request(`/api/members/${id}`);
+    return request(`/members/${id}`);
 }
 
 // 회원 정보 수정.
@@ -127,7 +88,7 @@ function getMember(id) {
 // [엔티티와 매핑] 주제에서 서버에 해당 주소가 추가됨.
 // 그 이전에는 호출해도 404 로 응답.
 function updateMember(id, body) {
-    return request(`/api/members/${id}`, { method: 'PUT', body });
+    return request(`/members/${id}`, { method: 'PUT', body });
 }
 
 // 회원 탈퇴.
@@ -135,7 +96,7 @@ function updateMember(id, body) {
 // [인가와 권한 확인] 주제에서 서버에 해당 주소가 추가됨.
 // 본인 확인이 가능한 시점에 도입.
 function deleteMember(id) {
-    return request(`/api/members/${id}`, { method: 'DELETE' });
+    return request(`/members/${id}`, { method: 'DELETE' });
 }
 
 // 로그인.
@@ -145,13 +106,13 @@ function deleteMember(id) {
 //
 // [토큰 발급] 주제부터는 응답에 토큰이 함께 포함됨.
 function login(body) {
-    return request('/api/auth/login', { method: 'POST', body });
+    return request('/auth/login', { method: 'POST', body });
 }
 
 // 로그아웃.
 // [토큰 저장과 차단] 주제에서 서버에 해당 주소가 추가됨.
 function logout() {
-    return request('/api/auth/logout', { method: 'POST' });
+    return request('/auth/logout', { method: 'POST' });
 }
 
 // =============================================================
