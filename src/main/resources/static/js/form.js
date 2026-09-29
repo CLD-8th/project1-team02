@@ -86,12 +86,14 @@ async function saveForm() {
             });
         }
 
-        const targetId = result && result.id ? result.id : formId;
-        if (targetId) {
-            location.href = `/detail.html?id=${targetId}`;
-        } else {
-            location.href = '/index.html';
-        }
+        // const targetId = result && result.id ? result.id : formId;
+        // if (targetId) {
+        //     location.href = `/detail.html?id=${targetId}`;
+        // } else {
+        //     location.href = '/index.html';
+        // }
+        location.href = '/index.html';
+
     } catch (error) {
         if (error.body && error.body.message) {
             showGlobalError(error.body.message);
