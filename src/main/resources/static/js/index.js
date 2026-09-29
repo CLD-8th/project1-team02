@@ -15,17 +15,13 @@ const PAGE_SIZE = 10;
 
 async function load() {
     clearMessage();
-    const keyword = document.getElementById('keyword').value.trim();
+    const department = document.getElementById('department').value.trim();
 
     // 조회 조건 구성.
     const params = {};
-    if (keyword) {
-        params.keyword = keyword;
+    if (department) {
+        params.department = department;
     }
-
-    // 쪽 번호와 크기를 전달해야 서버가 해당 쪽만 반환.
-    params.page = currentPage;
-    params.size = PAGE_SIZE;
 
     try {
         const posts = await getNotices(Object.keys(params).length ? params : null);
