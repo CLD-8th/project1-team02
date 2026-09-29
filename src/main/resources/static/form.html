@@ -21,15 +21,11 @@
     <h1 class="page-title" id="page-title">공지사항 등록</h1>
 
     <div class="card">
-        <!-- 부서 선택 -->
+
+        <!-- 부서 입력 -->
         <div class="field">
             <div class="field-head"><label for="department">부서</label></div>
-            <select id="department" class="form-select">
-                <option value="전체">전체</option>
-                <option value="개발팀">개발팀</option>
-                <option value="인사팀">인사팀</option>
-                <option value="영업팀">영업팀</option>
-            </select>
+            <input type="text" id="department" placeholder="부서명을 입력하세요 (예: 개발팀, 전체)">
             <div class="field-error hidden" id="department-error"></div>
         </div>
 
