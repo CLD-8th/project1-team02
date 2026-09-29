@@ -5,9 +5,11 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.serializer.GenericJacksonJsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import tools.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
 
@@ -33,6 +35,6 @@ public class CacheConfig {
                 // 현재 판에 맞는 방식을 자동으로 선택.
                 // 값에 형 정보가 함께 저장되어 꺼낼 때 되돌릴 수 있음.
                 .serializeValuesWith(RedisSerializationContext.SerializationPair
-                        .fromSerializer(RedisSerializer.json()));
+                        .fromSerializer(new GenericJacksonJsonRedisSerializer(new ObjectMapper())));
     }
 }
