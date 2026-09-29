@@ -10,9 +10,11 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.ArrayList;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -51,7 +53,7 @@ public class NoticeService {
 
         return notices.stream()
                 .map(NoticeDetailResponse::of)
-                .toList(); // Java 16 이상 (.collect(Collectors.toList()) 로 작성하셔도 됩니다)
+                .collect(Collectors.toCollection(ArrayList::new)); // Java 16 이상 (.collect(Collectors.toList()) 로 작성하셔도 됩니다)
     }
     // 3. 단건 상세 조회 캐싱
     @Cacheable(value = "noticeDetail", key = "#id")
