@@ -34,7 +34,6 @@ async function load() {
 function render(posts) {
     const list = document.getElementById('list');
 
-    // 응답이 묶음 형태이므로 목록을 꺼내고 쪽 정보를 사용.
     const items = posts;
     document.getElementById('count').textContent = items.length;
 
@@ -112,7 +111,7 @@ function search() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('keyword').addEventListener('keydown', e => {
+    document.getElementById('department').addEventListener('keydown', e => {
         if (e.key === 'Enter') {
             search();
         }
