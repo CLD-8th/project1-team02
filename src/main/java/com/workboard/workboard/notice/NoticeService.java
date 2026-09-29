@@ -33,8 +33,16 @@ public class NoticeService {
         return NoticeDetailResponse.of(savedNotice);
     }
 
-    public List<NoticeDetailResponse> findAll() {
-        return noticeRepository.findAll().stream()
+    public List<NoticeDetailResponse> findAll(String department) {
+        List<Notice> notices;
+
+        if(department != null && !department.isBlank()){
+            notices = noticeRepository.findByDepartment(department);
+        } else {
+            notices = noticeRepository.findAll();
+        }
+
+        return notices.stream()
                 .map(NoticeDetailResponse::of)
                 .toList(); // Java 16 이상 (.collect(Collectors.toList()) 로 작성하셔도 됩니다)
     }
