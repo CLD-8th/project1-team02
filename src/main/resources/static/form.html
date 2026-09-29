@@ -1,0 +1,71 @@
+군더더기, 쓸데없는 문구(저작권 등) 싹 다 빼고 팀 프로젝트 기능에 딱 필요한 알맹이만 간결하게 새로 정리한 코드입니다.
+
+1. form.html
+경로: src/main/resources/static/form.html
+
+HTML
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 등록</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="/index.html">
+            <span>WorkBoard</span>
+        </a>
+        <div class="header-user" id="header-user"></div>
+    </div>
+</header>
+
+<main class="site-main">
+    <h1 class="page-title" id="page-title">공지사항 등록</h1>
+
+    <div class="card">
+        <!-- 부서 선택 -->
+        <div class="field">
+            <div class="field-head"><label for="department">부서</label></div>
+            <select id="department" class="form-select">
+                <option value="전체">전체</option>
+                <option value="개발팀">개발팀</option>
+                <option value="인사팀">인사팀</option>
+                <option value="영업팀">영업팀</option>
+            </select>
+            <div class="field-error hidden" id="department-error"></div>
+        </div>
+
+        <!-- 제목 입력 -->
+        <div class="field">
+            <div class="field-head"><label for="title">제목</label></div>
+            <input type="text" id="title" placeholder="제목을 입력하세요">
+            <div class="field-error hidden" id="title-error"></div>
+        </div>
+
+        <!-- 내용 입력 -->
+        <div class="field">
+            <div class="field-head"><label for="content">내용</label></div>
+            <textarea id="content" rows="10" placeholder="내용을 입력하세요"></textarea>
+            <div class="field-error hidden" id="content-error"></div>
+        </div>
+
+        <!-- 에러 표시 영역 -->
+        <div class="alert alert-error hidden" id="save-error"></div>
+
+        <!-- 버튼 영역 -->
+        <div class="actions">
+            <button id="cancel" type="button" class="btn-outline">취소</button>
+            <button id="save" type="button" class="primary btn-primary">저장</button>
+        </div>
+    </div>
+</main>
+
+<script src="/js/api.js"></script>
+<script src="/js/layout.js"></script>
+<script src="/js/form.js"></script>
+</body>
+</html>
