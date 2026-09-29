@@ -35,9 +35,8 @@ function render(posts) {
     const list = document.getElementById('list');
 
     // 응답이 묶음 형태이므로 목록을 꺼내고 쪽 정보를 사용.
-    const items = posts.content;
-    renderPagination(posts.totalPages, posts.number);
-    document.getElementById('count').textContent = posts.totalElements;
+    const items = posts;
+    document.getElementById('count').textContent = items.length;
 
     if (items.length === 0) {
         list.innerHTML = '<tr><td colspan="4" class="empty">등록된 공지가 없음</td></tr>';
