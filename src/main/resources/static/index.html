@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>게시판</title>
+    <title>WorkBoard</title>
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/api.js" defer></script>
     <script src="/js/layout.js" defer></script>
@@ -29,7 +29,7 @@
                 <line x1="7" y1="16" x2="16" y2="16"
                       stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            <span>게시판</span>
+            <span>WorkBoard</span>
         </a>
         <div class="header-user" id="header-user"></div>
     </div>
@@ -49,6 +49,7 @@
             <th class="col-id">번호</th>
             <th>제목</th>
             <th class="col-writer">작성자</th>
+            <th class="col-department">부서</th>
             <th class="col-date">작성일</th>
         </tr>
         </thead>
@@ -56,20 +57,20 @@
     </table>
 
     <div class="list-bottom">
-        <a href="/form.html"><button class="btn-primary">글 작성</button></a>
+        <a href="/form.html"><button class="btn-primary">공지 작성</button></a>
     </div>
 
     <div class="pagination" id="pagination"></div>
 
     <div class="search">
-        <input type="text" id="keyword" placeholder="제목으로 검색" autocomplete="off">
+        <input type="text" id="department" placeholder="부서명 검색" autocomplete="off">
         <button class="btn-outline" onclick="search()">검색</button>
     </div>
 
 </main>
 
 <footer class="site-footer">
-    <div class="footer-inner">&copy; 2026 SUPERB DEVOPS. All rights reserved.</div>
+    <div class="footer-inner">&copy; 2026 CLD-08 PROJECT-1 TEAM02. All rights reserved.</div>
 </footer>
 
 </body>

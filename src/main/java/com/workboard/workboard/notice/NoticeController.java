@@ -26,8 +26,10 @@ public class NoticeController {
 
     // 2. 게시글 전체 목록 조회 (GET)
     @GetMapping
-    public ResponseEntity<List<NoticeDetailResponse>> getAllNotices() {
-        List<NoticeDetailResponse> notices = noticeService.findAll();
+    public ResponseEntity<List<NoticeDetailResponse>> getAllNotices(
+            @RequestParam(name = "department", required = false) String department
+    ) {
+        List<NoticeDetailResponse> notices = noticeService.findAll(department);
         return ResponseEntity.ok(notices);
     }
 
